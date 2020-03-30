@@ -85,6 +85,13 @@ class User {
 	 */
 	public $premium_type;
 
+    /**
+     * whether the user is an Official Discord System user (part of the urgent message system)
+     *
+     * @var bool|null
+     */
+	public $system = false;
+
 	/**
 	 * the user's username, not unique across the platform
 	 *

@@ -18,17 +18,18 @@ use RestCord\Constants;
 /**
  * @author Aaron Scherer <aequasi@gmail.com>
  *
- * AvatarTrait Class
+ * BannerTrait Class
  */
-trait AvatarTrait
+trait BannerTrait
 {
-    public function getAvatar($format = Constants::DEFAULT_IMAGE_FORMAT, $size = null)
+    public function getBanner($format = Constants::DEFAULT_IMAGE_FORMAT, $size = null)
     {
-        if (strpos($this->avatar, 'a_') === 0) {
-            $format = 'gif';
+        // this resource does not support gifs
+        if ($format === 'gif') {
+            $format = Constants::DEFAULT_IMAGE_FORMAT;
         }
 
-        $url = Constants::AVATAR_URL . $this->id . '/' . $this->avatar . '.' . $format;
+        $url = Constants::BANNER_URL . $this->id . '/' . $this->banner . '.' . $format;
         if ($size !== null) {
             $url .= '?size=' . $size;
         }

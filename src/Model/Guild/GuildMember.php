@@ -46,6 +46,13 @@ class GuildMember {
 	 */
 	public $nick;
 
+    /**
+     * when the user started boosting the guild
+     *
+     * @var \DateTimeImmutable|null
+     */
+	public $premium_since;
+
 	/**
 	 * array of role object ids
 	 *
