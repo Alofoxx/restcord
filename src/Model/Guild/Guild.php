@@ -13,16 +13,17 @@
 
 namespace RestCord\Model\Guild;
 
+use RestCord\Traits\BannerTrait;
+use RestCord\Traits\DiscoverySplashTrait;
 use RestCord\Traits\IconTrait;
 use RestCord\Traits\SplashTrait;
 
 /**
  * Guild Model
  */
-class Guild {
-
-	use IconTrait;
-	use SplashTrait;
+class Guild
+{
+    use BannerTrait, DiscoverySplashTrait, IconTrait, SplashTrait;
 
 	/**
 	 * id of afk channel
@@ -72,6 +73,13 @@ class Guild {
 	 * @var string
 	 */
 	public $description;
+
+    /**
+     * discovery splash hash
+     *
+     * @var string
+     */
+	public $discovery_splash;
 
 	/**
 	 * if not null, the channel id that the widget will generate an invite to
@@ -199,6 +207,20 @@ class Guild {
 	 */
 	public $permissions;
 
+    /**
+     * the number of boosts this server currently has
+     *
+     * @var int|null
+     */
+	public $premium_subscription_count;
+
+    /**
+     * premium tier (Server Boost level)
+     *
+     * @var int
+     */
+	public $premium_tier;
+
 	/**
 	 * presences of the users in the guild
 	 *
@@ -220,6 +242,13 @@ class Guild {
 	 */
 	public $roles;
 
+    /**
+     * the id of the channel where "PUBLIC" guilds display rules and/or guidelines
+     *
+     * @var int|null
+     */
+	public $rules_channel_id;
+
 	/**
 	 * splash hash
 	 *
@@ -233,6 +262,13 @@ class Guild {
 	 * @var int
 	 */
 	public $system_channel_id;
+
+    /**
+     * system channel flags
+     *
+     * @var int
+     */
+	public $system_channel_flags;
 
 	/**
 	 * is this guild unavailable

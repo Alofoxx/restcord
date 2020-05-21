@@ -18,17 +18,18 @@ use RestCord\Constants;
 /**
  * @author Aaron Scherer <aequasi@gmail.com>
  *
- * AvatarTrait Class
+ * DiscoverySplashTrait Class
  */
-trait AvatarTrait
+trait DiscoverySplashTrait
 {
-    public function getAvatar($format = Constants::DEFAULT_IMAGE_FORMAT, $size = null)
+    public function getDiscoverySplash($format = Constants::DEFAULT_IMAGE_FORMAT, $size = null)
     {
-        if (strpos($this->avatar, 'a_') === 0) {
-            $format = 'gif';
+        // this resource does not support gifs
+        if ($format === 'gif') {
+            $format = Constants::DEFAULT_IMAGE_FORMAT;
         }
 
-        $url = Constants::AVATAR_URL . $this->id . '/' . $this->avatar . '.' . $format;
+        $url = Constants::DISCOVERY_SPLASH_URL . $this->id . '/' . $this->discovery_splash . '.' . $format;
         if ($size !== null) {
             $url .= '?size=' . $size;
         }

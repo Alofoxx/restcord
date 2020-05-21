@@ -13,10 +13,14 @@
 
 namespace RestCord\Model\Emoji;
 
+use RestCord\Traits\EmojiTrait;
+
 /**
  * Emoji Model
  */
-class Emoji {
+class Emoji
+{
+    use EmojiTrait;
 
 	/**
 	 * whether this emoji is animated

@@ -22,11 +22,11 @@ use RestCord\Constants;
  */
 trait SplashTrait
 {
-    public function getSplash($format = 'webp', $size = null)
+    public function getSplash($format = Constants::DEFAULT_IMAGE_FORMAT, $size = null)
     {
-        $url = Constants::AVATAR_URL.$this->id.'/'.$this->splash.'.'.$format;
+        $url = Constants::SPLASH_URL . $this->id . '/' . $this->splash . '.' . $format;
         if ($size !== null) {
-            $url .= '?size='.$size;
+            $url .= '?size=' . $size;
         }
 
         return $url;

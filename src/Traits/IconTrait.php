@@ -22,11 +22,15 @@ use RestCord\Constants;
  */
 trait IconTrait
 {
-    public function getIcon($format = 'webp', $size = null)
+    public function getIcon($format = Constants::DEFAULT_IMAGE_FORMAT, $size = null)
     {
-        $url = Constants::AVATAR_URL.$this->id.'/'.$this->icon.'.'.$format;
+        if (strpos($this->icon, 'a_') === 0) {
+            $format = 'gif';
+        }
+
+        $url = Constants::GUILD_ICON_URL . $this->id . '/' . $this->icon . '.' . $format;
         if ($size !== null) {
-            $url .= '?size='.$size;
+            $url .= '?size=' . $size;
         }
 
         return $url;
